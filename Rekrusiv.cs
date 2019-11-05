@@ -14,41 +14,35 @@ namespace GuldSmed
             {
                 return int.MinValue;
             }
-
+            
             if (length == 0)
             {
                 return 0;
             }
-            
-            if (length == 1)
-            {
-                return vals[1];
-            }
 
-            if (length == 13)
+            foreach (int l in vals.Keys)
             {
-                return vals[13];
-            }
-
-            if (length == 30)
-            {
-                return vals[30];
+                if (length == l)
+                {
+                    return vals[l];
+                }
             }
 
             int arm = GetPriceRight(length - 14,vals)+vals[13]+vals[1];
             int hals = GetPriceRight(length - 31, vals) + vals[30] + vals[1];
+            int one = vals[1] * length;
 
-            if (hals >= arm && hals >= length)
+            if (hals >= arm && hals >= one)
             {
                 return hals;
             }
-            else if (arm >= length && arm >= hals)
+            else if (arm >= one && arm >= hals)
             {
                 return arm;
             }
             else
             {
-                return length;
+                return one;
             }
         }
     }
