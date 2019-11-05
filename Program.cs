@@ -12,7 +12,7 @@ namespace GuldSmed
         {
             {1,  1},
             {13, 140},
-            {30, 800}
+            {30, 300}
         };
 
         static void Main(string[] args)
