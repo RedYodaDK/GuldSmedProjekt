@@ -10,24 +10,29 @@ namespace GuldSmed
     {
         public static int GetPriceRight(int length, Dictionary<int, int> vals)
         {
-            if (length == 0)
-            {
-                return 0;
-            }
-
             if (length < 0)
             {
                 return int.MinValue;
             }
 
+            if (length == 0)
+            {
+                return 0;
+            }
+            
+            if (length == 1)
+            {
+                return vals[1];
+            }
+
             if (length == 13)
             {
-                return 140;
+                return vals[13];
             }
 
             if (length == 30)
             {
-                return 300;
+                return vals[30];
             }
 
             int arm = GetPriceRight(length - 14,vals)+vals[13]+vals[1];
