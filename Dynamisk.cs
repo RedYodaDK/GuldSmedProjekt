@@ -17,21 +17,37 @@ namespace GuldSmed
 
             int[] memory = new int[length + 1];
 
-            for (int i = 1; i < length; i++)
+            for (int i = 1; i <= length; i++)
             {
-                if (i < 13)
-                {
-                    memory[i] = vals[1];
-                }
+                memory[i] = memory[i-1] + vals[1];
 
-                if (i >= 13 && i < 30)
+                if (i == 13)
                 {
                     memory[i] = memory[i - 13] + vals[13];
                 }
 
+
+                if (i > 13)
+                {
+                    if (memory[i] < memory[i - 14] + vals[13] + vals[1])
+                    {
+                        memory[i] = memory[i - 14] + vals[13] + vals[1];
+                    }
+                }
+
+                if (i == 30)
+                {
+                    memory[i] = memory[i - 30] + vals[30];
+                }
+
+
                 if (i > 30)
                 {
-                    memory[i] = memory[i - 30] + memory[i - 13] + vals[30];
+                    if (memory[i] < memory[i - 31] + vals[30] + vals[1])
+                    {
+                        memory[i] = memory[i - 31] + vals[30] + vals[1];
+                    }
+                    
                 }
 
             }
