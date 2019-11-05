@@ -14,11 +14,11 @@ namespace GuldSmed
             {
                 return 0;
             } 
-            else if (length >= 30)
+            else if (length > 30)
             {
                 return 301 + GetBestPriceForChain(length - 31);
             }
-            else if (length >= 13)
+            else if (length > 13)
             {
                 return 101 + GetBestPriceForChain(length - 14);
             }
