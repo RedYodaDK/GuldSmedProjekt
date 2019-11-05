@@ -11,7 +11,8 @@ namespace GuldSmed
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            Console.WriteLine("Best Price: " + Rekrusiv.GetBestPriceForChain(int.Parse(input)));
+            Console.WriteLine("Best Price Rekrusiv: " + Rekrusiv.GetBestPriceForChain(int.Parse(input)));
+            Console.WriteLine("Best Price Dynamisk: " + Dynamisk.GetBestPriceForChain(int.Parse(input)));
             Console.ReadKey();
         }
     }
