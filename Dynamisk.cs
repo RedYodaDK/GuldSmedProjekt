@@ -8,43 +8,37 @@ namespace GuldSmed
 {
     class Dynamisk
     {
-        public static int GetPriceRight(int length)
+        public static int GetPriceRight(int length, Dictionary<int, int> vals)
         {
-            int before = 0;
-            int temp = 0;
+            if (length <= 0)
+            {
+                return 0;
+            }
+
+            int[] memory = new int[length + 1];
 
             for (int i = 1; i < length; i++)
             {
-                if (i < 30)
+                if (i < 13)
                 {
-                    if (i < 1)
-                    {
-                        temp = 1;
-                    }
-                    else
-                    {
-                        temp = 140;
-                    }
-                }
-                else
-                {
-                    temp = 300;
+                    memory[i] = vals[1];
                 }
 
-                before += temp;
+                if (i >= 13 && i < 30)
+                {
+                    memory[i] = memory[i - 13] + vals[13];
+                }
+
+                if (i > 30)
+                {
+                    memory[i] = memory[i - 30] + memory[i - 13] + vals[30];
+                }
+
             }
 
-
-
-
-
+            return memory[length];
 
         }
-
-
-
-
-
 
     }
 }
