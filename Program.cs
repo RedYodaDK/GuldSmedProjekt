@@ -18,8 +18,8 @@ namespace GuldSmed
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            Console.WriteLine("Best Price Recursiv: " + Rekrusiv.GetPriceRight(int.Parse(input), values));
             Console.WriteLine("Best Price Dynamic : " + Dynamisk.GetPriceRight(int.Parse(input), values));
+            Console.WriteLine("Best Price Recursiv: " + Rekrusiv.GetPriceRight(int.Parse(input), values));
             Console.ReadKey();
         }
     }
