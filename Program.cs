@@ -10,14 +10,14 @@ namespace GuldSmed
     {
         static void TimeAndRunGetPriceRight(int input)
         {
-            var watchRekusiv = System.Diagnostics.Stopwatch.StartNew();
-            int rekusivInt = Rekrusiv.GetPriceRight(input, values);
-            watchRekusiv.Stop();
             var watchDynamisk = System.Diagnostics.Stopwatch.StartNew();
             int dynamiskInt = Dynamisk.GetPriceRight(input, values);
             watchDynamisk.Stop();
-            Console.WriteLine("Bedste Pris Recursiv: " + rekusivInt + "og tog " + watchRekusiv.ElapsedMilliseconds + " Ms");
             Console.WriteLine("Bedste Pris Dynamisk: " + dynamiskInt + "og tog " + watchDynamisk.ElapsedMilliseconds + " Ms");
+            var watchRekusiv = System.Diagnostics.Stopwatch.StartNew();
+            int rekusivInt = Rekrusiv.GetPriceRight(input, values);
+            watchRekusiv.Stop();
+            Console.WriteLine("Bedste Pris Recursiv: " + rekusivInt + "og tog " + watchRekusiv.ElapsedMilliseconds + " Ms");
         }
 
         static Dictionary<int, int> values = new Dictionary<int, int>
