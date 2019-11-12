@@ -8,16 +8,21 @@ namespace GuldSmed
 {
     class Program
     {
+        static string PrittyFormatResult(int number, long ms)
+        {
+            return String.Format("Bedste Pris Dynamisk: {0}\nUdregnet på {1} Ms\n", number, ms);
+        }
+
         static void TimeAndRunGetPriceRight(int input)
         {
             var watchDynamisk = System.Diagnostics.Stopwatch.StartNew();
             int dynamiskInt = Dynamisk.GetPriceRight(input, values);
             watchDynamisk.Stop();
-            Console.WriteLine("Bedste Pris Dynamisk: " + dynamiskInt + "og tog " + watchDynamisk.ElapsedMilliseconds + " Ms");
+            Console.WriteLine(PrittyFormatResult(dynamiskInt, watchDynamisk.ElapsedMilliseconds));
             var watchRekusiv = System.Diagnostics.Stopwatch.StartNew();
             int rekusivInt = Rekrusiv.GetPriceRight(input, values);
             watchRekusiv.Stop();
-            Console.WriteLine("Bedste Pris Recursiv: " + rekusivInt + "og tog " + watchRekusiv.ElapsedMilliseconds + " Ms");
+            Console.WriteLine(PrittyFormatResult(rekusivInt, watchRekusiv.ElapsedMilliseconds));
         }
 
         static Dictionary<int, int> values = new Dictionary<int, int>
@@ -30,7 +35,14 @@ namespace GuldSmed
         static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            TimeAndRunGetPriceRight(int.Parse(input));
+            while (input != "end")
+            {
+                if (int.TryParse(input, out int i))
+                {
+                    TimeAndRunGetPriceRight(i);
+                }
+                input = Console.ReadLine();
+            }
             Console.ReadKey();
         }
     }
