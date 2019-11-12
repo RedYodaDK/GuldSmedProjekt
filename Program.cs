@@ -31,8 +31,6 @@ namespace GuldSmed
         {
             string input = Console.ReadLine();
             TimeAndRunGetPriceRight(int.Parse(input));
-            /*Console.WriteLine("Bedste Pris Recursiv: " + Rekrusiv.GetPriceRight(int.Parse(input), values));
-            Console.WriteLine("Bedste Pris Dynamisk: " + Dynamisk.GetPriceRight(int.Parse(input), values));*/
             Console.ReadKey();
         }
     }
